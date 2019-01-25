@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 
+{% load staticfiles %}
+
+
 <html>
 
 
@@ -16,7 +19,11 @@
             <a href= "/rango/index/">Index</a><br />
 			<img src="{{ MEDIA_URL }}cat.jpg"
 				alt="Blini Kot" /> 
+			
         </div>
-		
+		<div>
+			<img src="{% static 'images/cat.jpg' %}"
+				alt="Failed Image" /> 
+        </div>
     </body>
 </html>
