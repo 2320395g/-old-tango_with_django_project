@@ -14,5 +14,5 @@ class Page(models.model):
     views = models.IntegerField(default=0)
 
     def __str__(self):
-        return self title
+        return self.title
     
