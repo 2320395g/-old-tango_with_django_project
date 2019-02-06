@@ -1,15 +1,15 @@
 from django.db import models
 
 class Category(models.Model):
-    name = models.Charfield(max_length=128, unique=True)
+    name = models.CharField(max_length=128, unique=True)
 
     def __str__(self):
         return self.name
 
 
-class Page(models.model):
+class Page(models.Model):
     category = models.ForeignKey(Category)
-    title = models.CharFiels(max_length=120)
+    title = models.CharField(max_length=128)
     url = models.URLField()
     views = models.IntegerField(default=0)
 
