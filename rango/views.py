@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rango.models import Category
 from rango.models import Page
+from rango.forms import CategoryForm
+
 
 def index (request):
     '''construct a dictionary to pass to the template engine as its cotext.
@@ -42,4 +44,20 @@ def show_category(request, category_name_slug):
         context_dict['pages'] = None
 
     return render(request, 'rango/category.html', context_dict)
+
+def add_category(request):
+    form = CategoryForm()
+
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+
+
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        
+        else:
+            print(form.errors)
+    
+    return render(request, 'rango/add_category.html', {'form': form})
        
