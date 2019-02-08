@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-
 {% load staticfiles %}
-
-
 <html>
-
 
     <head>
         <title>Rango</title>
@@ -15,6 +11,7 @@
         <div>hey there partner! </div>
 			
 		<div>
+		<h2>Most Liked Categories</h2>
 		{% if categories %}
 		<ul>
 			{% for category in categories %}
@@ -27,6 +24,19 @@
 			<strong>There are no categories present.</strong>
 		{% endif %}
         </div>
+		
+		<div>
+		<h3>Most Viewed Pages</h3>
+		{% if pages %}
+			<ul>
+			{% for page in pages %}
+				<li><a href="{{ page.url }}">{{ page.title }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<strong>No pages currently in category.</strong>
+		{% endif %}
+		</div>
 		
         <div>
             <a href= "/rango/about/">About Rango</a><br />
