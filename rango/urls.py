@@ -19,7 +19,7 @@ urlpatterns = [
     
     url(r'^logout/$', views.user_logout, name='logout'),
 
-    url(r'^restricted/', views.restricted, name='restricted'),
+    url(r'^restricted/$', views.restricted, name='restricted'),
 
     ]
 
